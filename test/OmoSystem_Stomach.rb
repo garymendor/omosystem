@@ -29,5 +29,19 @@ module OmoSystemTest
       assert_equal(0.0, result.nutrition)
       assert_equal(0.0, result.roughage)
     end
+    
+    def test_receive__with_normal_values__updates_content_values
+      # Arrange
+      value = OmoSystem::Stomach.new
+      
+      # Act
+      value.receive(1.0, 2.0, 3.0, 4.0)
+      
+      # Assert
+      assert_equal(1.0, value.liquid)
+      assert_equal(2.0, value.calories)
+      assert_equal(3.0, value.nutrition)
+      assert_equal(4.0, value.roughage)
+    end
   end
 end
